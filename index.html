@@ -6,29 +6,37 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button class="btn">Купить</button>
-    <div class="content"></div>
-    <img class = "img" src="photo.jpg" alt="photo">
+<!--    <button class="btn">Купить</button>-->
+<!--    <div class="content"></div>-->
+<!--    <img class = "img" src="photo.jpg" alt="photo">-->
 <script>
-    const buttonEl = document.querySelector('.btn');
-    const contentEl = document.querySelector('.content');
-    const imgEl = document.querySelector('.img')
-    imgEl.onclick = function () {
-        imgEl.src = "newphoto.jpg"
-    }
-    
-    const textEl = document.createElement('p');
-    textEl.textContent = 'Aby text. A lot of.'
+    // const buttonEl = document.querySelector('.btn');
+    // const contentEl = document.querySelector('.content');
+    // const imgEl = document.querySelector('.img')
+    // imgEl.onclick = function () {
+    //     imgEl.src = "newphoto.jpg"
+    // }
+    //
+    // const textEl = document.createElement('p');
+    // textEl.textContent = 'Aby text. A lot of.'
+    //
+    // buttonEl.onclick = function () {
+    //     buttonEl.textContent = 'Товар в корзине'
+    //     contentEl.appendChild(textEl);
+    // }
 
-    buttonEl.onclick = function () {
-        buttonEl.textContent = 'Товар в корзине'
-        contentEl.appendChild(textEl);
-    }
+    const divElement = document.createElement('div')
+    const paragraphElement = document.createElement('p')
+    paragraphElement.textContent = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quo.'
+    divElement.appendChild(paragraphElement);
 
-
+    paragraphElement.style.color = 'white'
+    paragraphElement.style.backgroundColor = 'black'
+    paragraphElement.style.padding = '10px'
+    paragraphElement.style.width = '250px'
+    paragraphElement.style.textAlign = 'center'
 
 </script>
 </body>

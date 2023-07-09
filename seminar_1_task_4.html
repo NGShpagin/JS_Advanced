@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="#">
+    <input type="text">
+    <button class="btn">Отправить</button>
+</form>
+
+</body>
+<script>
+
+    // Задание 4 (тайминг 25 минут)
+    // 1. Дано поле ввода и кнопка отправить, необходим реализовать функционал, если пользователь нажимает на
+    // кнопку отправить, а поле ввода пустое, то под полем ввода и кнопкой должен появиться заголовок h2 с текстом
+    // вы не заполнили поле ввода
+    // 2. Цвет у рамки сделать красным
+
+    const formEl = document.querySelector('form')
+    const inputEl = document.querySelector('input')
+    const btnEl = document.querySelector('button')
+
+
+    // inputEl.addEventListener('input', (event)=> {
+    //     const value = event.target.value;
+    //     console.log(value)
+    // })
+
+    // function clickBtn() {
+    //     if (inputEl.value === '') {
+    //         const errorMsg = document.createElement('h2')
+    //         errorMsg.textContent = 'Вы не заполнили поле ввода'
+    //         errorMsg.style.color = 'red'
+    //         formEl.style.border = '2px solid red'
+    //         formEl.appendChild(errorMsg);
+    //     }
+    // }
+
+    formEl.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const errorMsg = document.createElement('h2')
+        formEl.appendChild(errorMsg);
+        if (inputEl.value.trim() === '') { //trim() - не учитывает пробелы
+            errorMsg.textContent = 'Вы не заполнили поле ввода'
+            errorMsg.style.color = 'red'
+            errorMsg.style.border = '2px solid red'
+        } else {
+            errorMsg.textContent = 'Вы заполнили поле ввода'
+            errorMsg.style.color = 'green'
+            errorMsg.style.border = '2px solid green'
+        }
+
+        setTimeout(() => {
+            errorMsg.remove();
+        }, 2000)
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .heading {
+            color: white;
+            text-transform: uppercase;
+            background-color: #ccc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="content"></div>-->
+<ul class="menu">
+    <li class="menu__list"><a href="#" class="menu__link">link-1</a></li>
+    <li class="menu__list"><a href="#" class="menu__link">link-2</a></li>
+    <li class="menu__list"><a href="#" class="menu__link">link-3</a></li>
+    <li class="menu__list"><a href="#" class="menu__link">link-4</a></li>
+</ul>
+<script>
+    // const content = document.querySelector('.content');
+    // const h1El = document.createElement('h1')
+    // h1El.textContent = 'h1 Element'
+    // h1El.setAttribute('class', 'heading')
+    //
+    // const imEl = document.createElement('img')
+    // imEl.src = 'photo.png'
+    // imEl.setAttribute('alt', 'cool photo')
+    //
+    // content.appendChild(h1El)
+    // content.appendChild(imEl)
+
+    const liEl = document.querySelectorAll('.menu__list')
+    const liE1One = document.querySelector('.menu__list')
+    const linkEl = document.querySelector('.menu__link')
+    const menuEl = document.querySelector('.menu')
+
+    // console.log(liEl)
+    // console.log(liE1One.parentNode.children)
+    // console.log(linkEl.children)
+    // console.log(linkEl.childNodes)
+    // console.log(menuEl.children)
+    // console.log(menuEl.childNodes)
+
+    menuEl.childNodes.forEach(element => {
+        console.log(element)
+    })
+
+</script>
+</body>
+</html>
