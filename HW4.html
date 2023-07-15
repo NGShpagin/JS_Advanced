@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input id="from" type="text">
+В инпуте написано: <span></span>
+
+<br>
+
+<button class="messageBtn">Показать блок</button>
+<div class="message">
+    Привет :)
+</div>
+
+<br>
+
+<form>
+    <label>
+        Первый инпут:
+        <input class="form-control" type="text">
+    </label>
+    <br>
+    <br>
+    <label>
+        Второй инпут:
+        <select class="form-control">
+            <option value=""></option>
+            <option value="1">Один</option>
+            <option value="2">Два</option>
+        </select>
+    </label>
+    <br>
+    <br>
+    <button>Отправить</button>
+</form>
+
+<script>
+    // 1. При изменении значения в input с id="from", значение содержащееся в нем должно моментально отображаться в span.
+    // То есть при печати в input'е тег span также должен меняться.
+    const fromEl = document.querySelector('#from');
+    const spanEl = document.querySelector('span');
+
+    fromEl.addEventListener('input', (e) => {
+        spanEl.textContent = e.target.value;
+    })
+
+    // 2. При клике на кнопку с классом messageBtn необходимо элементу с классом message:
+    // - добавить два класса: animate_animated и animate_fadeInLeftBig
+    // - поставить данному элементу стиль visibility в значение 'visible'.
+    const msgBtnEl = document.querySelector('.messageBtn');
+    const msgEl = document.querySelector('.message');
+
+    msgBtnEl.addEventListener('click', (e) => {
+        msgEl.classList.add('animate_animated', 'animate_fadeInLeftBig');
+        msgEl.style.visibility = 'visible';
+    })
+
+    // 3. Необходимо при отправке формы проверить, заполнены ли все поля в этой форме. Если какое-либо поле не заполнено,
+    // форма не должна отправляться, также должны быть подсвечены незаполненные поля
+    // (необходимо поставить класс error незаполненным полям). Как только пользователь начинает заполнять какое-либо поле,
+    // необходимо, при вводе в данное поле, произвести проверку:
+    //  - Если поле пустое, необходимо данное поле подсветить (поставить класс error данному полю).
+    // - Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
+    const formEl = document.querySelector('form');
+    const inputEls = formEl.querySelectorAll('.form-control');
+    const buttonEl = formEl.querySelector('button')
+
+    const errorTxt = document.createElement('div')
+    errorTxt.style.color = 'red';
+    formEl.appendChild(errorTxt);
+
+    const formSubmitFunc = function (e) {
+        let flag = false;
+        inputEls.forEach((element) => {
+            if (element.value === '') {
+                element.classList.add('error')
+                flag = true;
+                console.log(`${element.value} - ${flag}`)
+            } else {
+                if (element.classList.contains('error')) {
+                    element.classList.remove('error')
+                    element.style.border = '1px solid black'
+                }
+                console.log(`${element.value} - ${flag}`)
+            }
+        })
+        if (flag) {
+            errorTxt.textContent = 'Не все обязательные поля заполнены'
+            console.log(flag)
+            const errorEl = formEl.querySelectorAll('.error');
+            errorEl.forEach((item) => {
+                item.style.border = '1px solid red'
+            })
+            e.preventDefault();
+        }
+        else {
+            errorTxt.textContent = '';
+        }
+    }
+
+    buttonEl.addEventListener('click', formSubmitFunc)
+
+
+
+</script>
+</body>
+</html>

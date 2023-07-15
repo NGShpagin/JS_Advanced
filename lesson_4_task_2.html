@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="#" class="form">
+    <h2>Форма</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad distinctio dolorum ducimus eligendi ipsum itaque
+        iusto, laudantium minus nisi, obcaecati odit quibusdam repellendus veritatis voluptatem voluptatum. Cum eligendi
+        error est et ipsam nemo, repudiandae suscipit. Cupiditate eligendi eos laborum laudantium magni molestias nihil
+        quaerat qui quo, rerum saepe tempora unde!</p>
+    <input id="check" type="checkbox" class="check">
+    <label for="check">Согласен с условиями</label>
+    <div class="error"></div>
+    <button type="submit">Отправить</button>
+</form>
+
+<script>
+    const inputEl = document.querySelector('.check');
+    const formEl = document.querySelector('.form')
+    const errorEl = formEl.querySelector('.error')
+    errorEl.style.color = 'red';
+
+    inputEl.addEventListener('click', (e) => {
+        const target = e.target;
+        console.log(target.checked)
+    })
+
+    formEl.addEventListener('submit', (e) => {
+        console.log(inputEl.checked ? 'Cool': 'Необходимо выбрать "Согласен с условиями"')
+        errorEl.textContent = inputEl.checked ? '': 'Необходимо выбрать "Согласен с условиями"'
+    })
+</script>
+
+</body>
+</html>

@@ -1,10 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<!--Задание 3-->
+<!--<ul class="menu">&ndash;&gt;-->
+<!--    <li>item 1</li>&ndash;&gt;-->
+<!--   <li>item 2</li>&ndash;&gt;-->
+<!--&    <li>item 3</li>&ndash;&gt;-->
+<!--</ul>-->
+
+<button class="button">Buy It</button>
+<a href="https://yandex.ru" class="link">Yandex</a>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam aliquid aspernatur commodi cumque deleniti dolor
+    dolore doloremque error eveniet excepturi fugit ipsa ipsum laboriosam magnam mollitia nam necessitatibus nemo nobis
+    officia optio, quae quia, recusandae reiciendis rerum saepe sequi sint totam vel voluptatum? Aut dicta quod ratione
+    sit voluptates. Assumenda consectetur consequatur doloribus ea eius eos explicabo id ipsa iure molestias natus
+    pariatur, placeat quidem quisquam, temporibus ut voluptatem. Animi aperiam aut dicta ea excepturi, expedita fuga
+    fugiat ipsa magnam maxime perspiciatis possimus quam, quisquam sunt tempora totam ut veniam voluptatibus. Deserunt
+    eos excepturi incidunt nam sapiente. Accusamus accusantium aliquid aut corporis eos esse, expedita, illo magnam
+    necessitatibus omnis pariatur possimus praesentium provident quaerat voluptas! A adipisci amet assumenda atque autem
+    commodi culpa deserunt error expedita harum inventore nesciunt nostrum quae quaerat, quidem quis repudiandae sint
+    sunt vel voluptatibus! Consequatur consequuntur cupiditate dignissimos eius explicabo quidem sint temporibus
+    voluptate.</p>
+
+<form action="#">
+    <div class="error"></div>
+    <input type="text" class="input">
+    <button type="submit">OK</button>
+</form>
+<script>
+    // Задание 1. addEventListener
+    // const buttonEl = document.querySelector('.button');
+    //
+    // let count = 0;
+    //
+    // const click = function () {
+    //     console.log('Click js button')
+    //     count++;
+    //     console.log(`Кликов по кнопке - ${count}`)
+    // }
+    //
+    // buttonEl.onclick = click;
+    //
+    // buttonEl.addEventListener('click', click);
+
+    // Задание 2.
+    // const buttonElements = document.querySelectorAll('.button')
+    // buttonElements.forEach(element => {
+    //     element.addEventListener('click', function (event) {
+    //         const target = event.target
+    //         console.log(target)
+    //     })
+    // })
+
+    // Задание 3. Делегирование событий
+    // const menuEl = document.querySelector('.menu');
+    // const nameFunc = (e) => {
+    //     console.log(e.target, e.currentTarget)
+    // }
+    //
+    // menuEl.addEventListener('click', nameFunc)
+
+    // Задание 4. Load
+    // document.addEventListener('DOMContentLoaded', function (e) {
+    //     console.log('loaded')
+    // })
+    //
+    // window.addEventListener('load', function () {
+    //     console.log('completed')
+    // })
+
+    // Задание 5. Mouse
+    // const buttonEl = document.querySelector('button');
+    //
+    // buttonEl.addEventListener('mouseover', function () {
+    //     console.log('Не наводи, а нажми')
+    // })
+    //
+    // buttonEl.addEventListener('mouseleave', function () {
+    //     console.log('Не уходи, вернись!')
+    // })
+
+    // Задание 5. Keys
+    // window.addEventListener('keydown', function (e) {
+    //     console.log(e.key)
+    // })
+
+    // Задание 6. PreventDefault - остановка действия
+    // const link = document.querySelector('.link')
+    // link.addEventListener('click', function (e) {
+    //     e.preventDefault();
+    //     console.log('hello link')
+    // })
+
+    // Задание 7. Copy
+    // document.addEventListener('copy', function (e) {
+    //     const copyText = document.getSelection().toString();
+    //     console.log(copyText + ' @copied from mysite')
+    // })
+
+    // Задание 7. Resize
+    // window.addEventListener('resize', (e) => {
+    //     console.log('resize')
+    // })
+
+    // Задание 7. Input
+    // const inputEl = document.querySelector('input')
+
+    // inputEl.addEventListener('input', (e) => {
+    //     console.log(e.target.value);
+    // });
+
+    // inputEl.addEventListener('input', (e) => {
+    //     if (Number(e.target.value) === 123) {
+    //         console.log('Cool')
+    //     } else {
+    //         console.log('Not Right')
+    //     }
+    // })
+
+    // Задание 8. Submit
+    const inputEl = document.querySelector('input');
+    const formEl = document.querySelector('form');
+    const errorEl = document.querySelector('.error')
+
+    formEl.addEventListener('submit', function (e) {
+        if (inputEl.value === '') {
+            e.preventDefault();
+            errorEl.textContent = 'Поле не заполнено'
+            errorEl.style.color = 'red'
+        }
+    })
+
+
+</script>
 </body>
 </html>
